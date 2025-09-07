@@ -1,11 +1,14 @@
 {
   "name": "helpful-utils-lite",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lightweight utility library with debounce, throttle, and memoize functions (lodash-lite alternative).",
-  "main": "src/index.js",
+  "main": "dist/index.min.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "minify": "npx -y google-closure-compiler --compilation_level ADVANCED_OPTIMIZATIONS --env BROWSER --language_in ES_NEXT --language_out ECMASCRIPT_2020 --rewrite_polyfills --warning_level QUIET --isolation_mode IIFE --js src/index.js --js_output_file dist/index.min.js",
+    "compile": "npx -y google-closure-compiler --compilation_level SIMPLE --env BROWSER --language_in ES_NEXT --language_out ECMASCRIPT_2020 --rewrite_polyfills --warning_level QUIET --isolation_mode IIFE --js src/index.js --js_output_file dist/index.js",
+    "build": "npm run compile && npm run minify"
   },
   "repository": {
     "type": "git",

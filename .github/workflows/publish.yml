@@ -24,6 +24,9 @@ jobs:
       - name: Run tests (optional)
         run: npm test || echo "No tests"
 
+      - name: Build
+        run: npm run build
+
       - name: Publish package
         run: npm publish --access public
         env:
