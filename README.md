@@ -32,7 +32,7 @@ npm install helpful-utils-lite
 
 ```html
 <script type="module">
-    import { debounce, throttle, memoize } from "./lodash-lite.js";
+    import { debounce, throttle, memoize } from "https://unpkg.com/helpful-utils-lite";
 
     const log = debounce(() => console.log("Debounced!"), 300);
     window.addEventListener("resize", log);
@@ -49,7 +49,7 @@ npm install helpful-utils-lite
 ### In NodeJs (CommonJS)
 
 ```js
-const { debounce, throttle, memoize } = require("./lodash-lite.js");
+const { debounce, throttle, memoize } = require("helpful-utils-lite");
 
 const test = memoize((n) => n * 2);
 console.log(test(10)); // 20

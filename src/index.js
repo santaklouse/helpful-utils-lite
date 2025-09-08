@@ -1,4 +1,3 @@
-
 function debounce(func, wait, options = {}) {
     let timeout, result;
     let lastArgs, lastThis;
@@ -141,10 +140,26 @@ function memoize(func, resolver) {
     memoized.cache = cache;
     return memoized;
 }
+if (typeof module !== 'undefined') {
+    console.log(module)
+    console.log(module?.exports)
+}
 
-export { debounce, throttle, memoize };
+window['debounce'] = debounce;
+window['throttle'] = throttle;
+window['memoize'] = memoize;
+
+export default {
+    'debounce': debounce,
+    'throttle': throttle,
+    'memoize': memoize
+};
 
 // for CommonJS
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { debounce, throttle, memoize };
+if (typeof module !== 'undefined') {
+    module['exports'] = {
+        'debounce': debounce,
+        'throttle': throttle,
+        'memoize': memoize
+    };
 }
